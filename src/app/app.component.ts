@@ -45,4 +45,9 @@ export class AppComponent {
       this.dbContext.list('courses').push(data.value);
     }
   }
+  Update(key: any, value: any) {
+    if (key !== '' && value !== '') {
+      this.dbContext.list('courses').update(key, value);
+    }
+  }
 }
