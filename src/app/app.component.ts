@@ -31,9 +31,9 @@ export class AppComponent {
       .snapshotChanges()
       .pipe(
         map((action) =>
-          action.map((a) => {
-            const key = a.payload.key;
-            const data = a.payload.val();
+          action.map((client) => {
+            const key = client.payload.key;
+            const data = client.payload.val();
             return data;
           })
         )
@@ -43,11 +43,21 @@ export class AppComponent {
   Add(data: any) {
     if (data !== '') {
       this.dbContext.list('courses').push(data.value);
+      this.dbContext.list('clients').push({
+        firstname : "simo",
+        lastname : "ben",
+        email : "simo@gmail.com"
+      });
     }
+    data.value = "";
   }
+  
   Update(key: any, value: any) {
     if (key !== '' && value !== '') {
-      this.dbContext.list('courses').update(key, value);
+      this.dbContext.list('clients').update(key,{lastname : value} );
     }
+    
   }
+
+
 }

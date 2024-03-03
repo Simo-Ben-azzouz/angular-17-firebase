@@ -2,8 +2,8 @@
 <ul>
   <input type="text" (keyup.enter)="Add(data)" #data>
   <li *ngFor="let course of courses | async | keyvalue">
-    {{ course.key }} -
-    {{ course.value }}
+    {{ course.key }} - {{ course.value }}
+   
     <button class="btn btn-primary" (click)="Update(course.key, data.value)">Update</button>
   </li>
 </ul>
@@ -11,9 +11,12 @@
 <h1> list clients</h1>
 <ul>
   <li *ngFor="let client of clients | async">
-    {{ client.key }}
-    {{ client.lastname }}
-    {{ client.firstname }}
+    {{ client.firstname }} <br>
+    {{ client.lastname }} <br>
     {{ client.email }}
+    <!-- {{ client.key }}
+    {{ client.value }} -->
+    <button class="btn btn-primary" (click)="Update(client.key, data.value)">Update</button>
+
   </li>
 </ul>
