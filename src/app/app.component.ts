@@ -54,10 +54,16 @@ export class AppComponent {
   
   Update(key: any, value: any) {
     if (key !== '' && value !== '') {
-      this.dbContext.list('clients').update(key,{lastname : value} );
+      this.dbContext.list('clients').update(key,{
+        firstname : value,
+      });
     }
     
   }
 
+  Delete(key: any) {
+      this.dbContext.list('clients').remove(key);
+      this.dbContext.list('courses').remove(key);
+  }
 
 }
